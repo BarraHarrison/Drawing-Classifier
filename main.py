@@ -19,3 +19,13 @@ class DrawingClassifier():
     def __init__(self):
         self.class1, self.class2, self.class3 = None, None, None
         self.class1_counter, self.class2_counter, self.class3_counter = None, None, None
+        self.classifier = None
+        self.project_name = None
+        self.root = None
+        self.image1 = None
+
+        self.status_label = None
+        self.canvas = None
+        self.draw = None
+
+        self.brush_width = 15
