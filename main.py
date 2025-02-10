@@ -29,3 +29,12 @@ class DrawingClassifier():
         self.draw = None
 
         self.brush_width = 15
+
+        self.classes_prompt()
+        self.init_gui()
+
+    def classes_prompt(self):
+        pass
+
+    def init_gui(self):
+        pass
