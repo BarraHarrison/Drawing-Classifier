@@ -13,3 +13,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+
+class DrawingClassifier():
+
+    def __init__(self):
+        self.class1, self.class2, self.class3 = None, None, None
+        self.class1_counter, self.class2_counter, self.class3_counter = None, None, None
