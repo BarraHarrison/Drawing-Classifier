@@ -55,5 +55,11 @@ class DrawingClassifier():
             self.class2 = simpledialog.askstring("Class 2", "What is the second class called?", parent=msg)
             self.class3 = simpledialog.askstring("Class 3", "What is the third class called?", parent=msg)
 
+            self.class1_counter = 1
+            self.class2_counter = 1
+            self.class3_counter = 1
+
+            self.classifier = LinearSVC()
+
     def init_gui(self):
         pass
