@@ -208,7 +208,20 @@ class DrawingClassifier():
         pass
 
     def predict(self):
-        pass
+        self.image1.save("temporary.png")
+        img = PIL.Image.open("temporary.png")
+        img.thumbnail((50,50), PIL.Image.ANTIALIAS)
+        img.save("predictshape.png", "PNG")
+
+        img = cv.imread("predictshape.png")[:, :, 0]
+        img = img.reshape(2500)
+        prediction = self.classifier.predict([img])
+        if prediction[0] == 1:
+            tkinter.messagebox.showinfo("Python Drawing Classifier", f"The drawing is most likely a {self.class1}", parent=self.root)
+        elif prediction[0] == 2:
+            tkinter.messagebox.showinfo("Python Drawing Classifier", f"The drawing is most likely a {self.class2}", parent=self.root)
+        elif prediction[0] == 3:
+            tkinter.messagebox.showinfo("Python Drawing Classifier", f"The drawing is most likely a {self.class3}", parent=self.root)
 
     def save_everything(self):
         pass
