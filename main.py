@@ -78,6 +78,10 @@ class DrawingClassifier():
         self.root.title(f"Python Drawing-Classifer v1.0 - {self.project_name}")
 
         self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-10, bg="white")
-        self.canvas.pack()
+        self.canvas.pack(expand=YES, fill=BOTH)
+        self.canvas.bind("<B1-Motion>", self.paint)
 
-        self.image1 = PIL.Image.new
+        self.image1 = PIL.Image.new("RGB", (WIDTH, HEIGHT), WHITE)
+        self.draw = PIL.ImageDraw.Draw(self.image1)
+
+        
