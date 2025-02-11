@@ -109,6 +109,15 @@ class DrawingClassifier():
         brush_plus_button = Button(button_frame, text="Brush+", command=self.brushplus)
         brush_plus_button.grid(row=1, column=2, sticky=W + E)
 
+        train_button = Button(button_frame, text="Train Model", command=self.train_model)
+        train_button.grid(row=2, column=0, sticky=W + E)
+
+        save_button = Button(button_frame, text="Save Model", command=self.save_model)
+        save_button.grid(row=2, column=1, sticky=W + E)
+
+        load_button = Button(button_frame, text="Load Model", command=self.load_model)
+        load_button.grid(row=2, column=2, sticky=W + E)
+
         
     def paint(self, event):
         pass
@@ -123,4 +132,13 @@ class DrawingClassifier():
         pass
 
     def clear(self):
+        pass
+
+    def train_model(self):
+        pass
+
+    def save_model(self):
+        pass
+
+    def load_model(self):
         pass
