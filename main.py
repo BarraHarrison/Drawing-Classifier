@@ -118,6 +118,15 @@ class DrawingClassifier():
         load_button = Button(button_frame, text="Load Model", command=self.load_model)
         load_button.grid(row=2, column=2, sticky=W + E)
 
+        change_button = Button(button_frame, text="Change Model", command=self.rotate_model)
+        change_button.grid(row=3, column=0, sticky=W + E)
+
+        predict_button = Button(button_frame, text="Predict", command=self.predict)
+        predict_button.grid(row=3, column=1, sticky=W + E)
+
+        save_everything_button = Button(button_frame, text="Save Everything", command=self.save_everything)
+        save_everything_button.grid(row=3, column=2, sticky=W + E)
+
         
     def paint(self, event):
         pass
@@ -141,4 +150,13 @@ class DrawingClassifier():
         pass
 
     def load_model(self):
+        pass
+
+    def rotate_model(self):
+        pass
+
+    def predict(self):
+        pass
+
+    def save_everything(self):
         pass
