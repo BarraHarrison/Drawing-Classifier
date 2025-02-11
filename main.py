@@ -206,7 +206,10 @@ class DrawingClassifier():
         tkinter.messagebox.showinfo("Python Drawing Classifier", "Model Successfully saved!", parent=self.root)
 
     def load_model(self):
-        pass
+        file_path = filedialog.askopenfilename()
+        with open(file_path, "rb") as f:
+            self.classifier = pickle.load(f)
+            tkinter.messagebox.showinfo("Python Drawing Classifier", "Model Successfully saved!", parent=self.root)
 
     def rotate_model(self):
         if isinstance(self.classifier, LinearSVC):
