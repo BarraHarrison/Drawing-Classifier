@@ -84,6 +84,18 @@ class DrawingClassifier():
         self.image1 = PIL.Image.new("RGB", (WIDTH, HEIGHT), WHITE)
         self.draw = PIL.ImageDraw.Draw(self.image1)
 
+        button_frame = tkinter.Frame(self.root)
+        button_frame.pack(fill=X, side=BOTTOM)
+
+        button_frame.columnconfigure(0, weight=1)
+        button_frame.columnconfigure(1, weight=1)
+        button_frame.columnconfigure(2, weight=1)
+
+        class1_button = Button(button_frame, text=self.class1, command=lambda: self.save(1))
+
         
-    def paint(self):
+    def paint(self, event):
+        pass
+
+    def save(self):
         pass
