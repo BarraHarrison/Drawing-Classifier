@@ -61,5 +61,12 @@ class DrawingClassifier():
 
             self.classifier = LinearSVC()
 
+            os.mkdir(self.project_name)
+            os.chdir(self.project_name)
+            os.mkdir(self.class1)
+            os.mkdir(self.class2)
+            os.mkdir(self.class3)
+            os.chdir("..")
+
     def init_gui(self):
         pass
