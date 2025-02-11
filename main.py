@@ -193,6 +193,11 @@ class DrawingClassifier():
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 3)
 
+        img_list = img_list.reshape(self.class1_counter - 1 + self.class2_counter - 1 + self.class3_counter - 1, 2500)
+
+        self.classifier.fit(img_list, class_list)
+        tkinter.messagebox.showinfo("Python Drawing Classifier", "Model Successfully Trained", parent=self.root)
+
     def save_model(self):
         pass
 
