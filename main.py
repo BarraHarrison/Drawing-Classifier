@@ -140,7 +140,21 @@ class DrawingClassifier():
         pass
 
     def save(self, class_num):
-        pass
+        self.image1.save("temporary.png")
+        img = PIL.Image.open("temporary.png")
+        img.thumbnail((50,50), PIL.Image.ANTIALIAS)
+
+        if class_num == 1:
+            img.save(f"{self.project_name}/{self.class1}/{self.class1_counter}.png", "PNG")
+            self.class1_counter += 1
+        elif class_num == 2:
+            img.save(f"{self.project_name}/{self.class2}/{self.class2_counter}.png", "PNG")
+            self.class2_counter += 1
+        elif class_num == 3:
+            img.save(f"{self.project_name}/{self.class3}/{self.class3_counter}.png", "PNG")
+            self.class3_counter += 1
+
+        self.clear()
 
     def brushminus(self):
         if self.brush_width > 1:
