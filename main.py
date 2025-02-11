@@ -143,15 +143,16 @@ class DrawingClassifier():
         pass
 
     def brushminus(self):
-        pass
+        if self.brush_width > 1:
+            self.brush_width -= 1
 
     def brushplus(self):
-        pass
+        self.brush_width += 1
 
     def clear(self):
         self.canvas.delete("all")
         self.draw.rectangle(0, 0, 1000, 1000, fill="white")
-        
+
 
     def train_model(self):
         pass
