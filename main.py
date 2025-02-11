@@ -172,7 +172,26 @@ class DrawingClassifier():
 
 
     def train_model(self):
-        pass
+        img_list = np.array([])
+        class_list = np.array([])
+
+        for x in range(1, self.class1_counter):
+            img = cv.imread(f"{self.project_name}/{self.class1}/{x}.png")[:, :, 0]
+            img.reshape(2500)
+            img_list = np.append(img_list, [img])
+            class_list = np.append(class_list, 1)
+
+        for x in range(1, self.class2_counter):
+            img = cv.imread(f"{self.project_name}/{self.class2}/{x}.png")[:, :, 0]
+            img.reshape(2500)
+            img_list = np.append(img_list, [img])
+            class_list = np.append(class_list, 2)
+
+        for x in range(1, self.class3_counter):
+            img = cv.imread(f"{self.project_name}/{self.class3}/{x}.png")[:, :, 0]
+            img.reshape(2500)
+            img_list = np.append(img_list, [img])
+            class_list = np.append(class_list, 3)
 
     def save_model(self):
         pass
