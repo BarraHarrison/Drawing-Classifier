@@ -100,9 +100,27 @@ class DrawingClassifier():
         class3_button = Button(button_frame, text=self.class3, command=lambda: self.save(3))
         class3_button.grid(row=0, column=2, sticky=W + E)
 
+        brush_minus_button = Button(button_frame, text="Brush-", command=self.brushminus)
+        brush_minus_button.grid(row=1, column=0, sticky=W + E)
+
+        clear_button = Button(button_frame, text="Clear", command=self.clear)
+        clear_button.grid(row=1, column=1, sticky=W + E)
+
+        brush_plus_button = Button(button_frame, text="Brush+", command=self.brushplus)
+        brush_plus_button.grid(row=1, column=2, sticky=W + E)
+
         
     def paint(self, event):
         pass
 
     def save(self, class_num):
+        pass
+
+    def brushminus(self):
+        pass
+
+    def brushplus(self):
+        pass
+
+    def clear(self):
         pass
