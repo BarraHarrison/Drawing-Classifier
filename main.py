@@ -188,3 +188,6 @@ class DrawingClassifier():
 
     def save_everything(self):
         pass
+
+
+DrawingClassifier()
