@@ -95,7 +95,10 @@ class DrawingClassifier():
         class1_button.grid(row=0, column=0, sticky=W + E)
 
         class2_button = Button(button_frame, text=self.class2, command=lambda: self.save(2))
-        class2_button.grid(row=0, column=0, sticky=W + E)
+        class2_button.grid(row=0, column=1, sticky=W + E)
+
+        class3_button = Button(button_frame, text=self.class3, command=lambda: self.save(3))
+        class3_button.grid(row=0, column=2, sticky=W + E)
 
         
     def paint(self, event):
