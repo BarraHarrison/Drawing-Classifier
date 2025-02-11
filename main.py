@@ -85,3 +85,5 @@ class DrawingClassifier():
         self.draw = PIL.ImageDraw.Draw(self.image1)
 
         
+    def paint(self):
+        pass
