@@ -127,6 +127,14 @@ class DrawingClassifier():
         save_everything_button = Button(button_frame, text="Save Everything", command=self.save_everything)
         save_everything_button.grid(row=3, column=2, sticky=W + E)
 
+        self.status_label = Label(button_frame, text=f"Current Model: {type(self.classifier).__name__}")
+        self.status_label.config(font=("Arial", 10))
+        self.status_label.grid(row=4, column=1, sticky=W + E)
+
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.root.attributes("-topmost", True)
+        self.root.mainloop()
+
         
     def paint(self, event):
         pass
