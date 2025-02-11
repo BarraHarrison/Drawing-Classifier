@@ -39,6 +39,9 @@ class DrawingClassifier():
         msg.withdraw()
 
         self.project_name = simpledialog.askstring("Project Name", "Please enter your project name down below.", parent=msg)
+        if os.path.exists(self.project_name):
+            with open(f"{self.project_name}/{self.project_name}_data.pickle", "rb") as f:
+                data = pickle.load(f)
 
     def init_gui(self):
         pass
