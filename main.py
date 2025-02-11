@@ -3,6 +3,7 @@ import os.path
 
 import tkinter.messagebox
 from tkinter import *
+from tkinter import simpledialog
 
 import numpy as np 
 import PIL
@@ -34,7 +35,10 @@ class DrawingClassifier():
         self.init_gui()
 
     def classes_prompt(self):
-        pass
+        msg = Tk()
+        msg.withdraw()
+
+        self.project_name = simpledialog.askstring("Project Name", "Please enter your project name down below.", parent=msg)
 
     def init_gui(self):
         pass
