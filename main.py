@@ -15,6 +15,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 
 class DrawingClassifier():
 
@@ -205,7 +206,20 @@ class DrawingClassifier():
         pass
 
     def rotate_model(self):
-        pass
+        if isinstance(self.classifier, LinearSVC):
+            self.classifier = KNeighborsClassifier()
+        elif isinstance(self.classifier, KNeighborsClassifier):
+            self.classifier = LogisticRegression()
+        elif isinstance(self.classifier, LogisticRegression):
+            self.classifier = DecisionTreeClassifier()
+        elif isinstance(self.classifier, DecisionTreeClassifier):
+            self.classifier = RandomForestClassifier()
+        elif isinstance(self.classifier, RandomForestClassifier):
+            self.classifier = GaussianNB()
+        elif isinstance(self.classifier, GaussianNB):
+            self.classifier = LinearSVC()
+
+        self.status_label.config(text=f"Current Model: {type(self.classifier).__name__}")
 
     def predict(self):
         self.image1.save("temporary.png")
