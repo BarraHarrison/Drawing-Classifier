@@ -3,7 +3,7 @@ import os.path
 
 import tkinter.messagebox
 from tkinter import *
-from tkinter import simpledialog
+from tkinter import simpledialog, filedialog
 
 import numpy as np 
 import PIL
@@ -200,7 +200,10 @@ class DrawingClassifier():
         tkinter.messagebox.showinfo("Python Drawing Classifier", "Model Successfully Trained", parent=self.root)
 
     def save_model(self):
-        pass
+        file_path = filedialog.asksaveasfilename(defaultextension="pickle")
+        with open(file_path, "wb") as f:
+            pickle.dump(self.classifier, f)
+        tkinter.messagebox.showinfo("Python Drawing Classifier", "Model Successfully saved!", parent=self.root)
 
     def load_model(self):
         pass
