@@ -149,7 +149,9 @@ class DrawingClassifier():
         pass
 
     def clear(self):
-        pass
+        self.canvas.delete("all")
+        self.draw.rectangle(0, 0, 1000, 1000, fill="white")
+        
 
     def train_model(self):
         pass
