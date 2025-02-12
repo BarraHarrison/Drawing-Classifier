@@ -103,10 +103,9 @@ class DrawingClassifier():
 
         
     def paint(self, event):
-        x1, y1 = (event.x - 1), (event.y - 1)
-        x2, y2 = (event.x + 1), (event.y + 1)
+        x1, y1, x2, y2 = event.x - 1, event.y - 1, event.x + 1, event.y + 1
         self.canvas.create_rectangle(x1, y1, x2, y2, fill="black", width=self.brush_width)
-        self.draw.rectangle([x1, y2, x2 + self.brush_width, y2 + self.brush_width], fill="black", width=self.brush_width)
+        self.draw.rectangle([x1, y1, x2, y2], fill="black", width=self.brush_width)
 
     def save(self, class_num):
         self.image1.save("temporary.png")
