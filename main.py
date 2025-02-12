@@ -79,7 +79,7 @@ class DrawingClassifier:
         self.root = Tk()
         self.root.title(f"Python Drawing Classifier v0.1 - {self.project_name}")
 
-        self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-10, bg="white")
+        self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-10, bg='white')
         self.canvas.pack(expand=YES, fill=BOTH)
         self.canvas.bind("<B1-Motion>", self.paint)
 
@@ -144,8 +144,8 @@ class DrawingClassifier:
         self.draw.rectangle([x1, y2, x2 + self.brush_width, y2 + self.brush_width], fill="black", width=self.brush_width)
 
     def save(self, class_num):
-        self.image1.save("temp.png")
-        img = PIL.Image.open("temp.png")
+        self.image1.save("tetemporarymp.png")
+        img = PIL.Image.open("temporary.png")
         img.thumbnail((50, 50), PIL.Image.ANTIALIAS)
 
         if class_num == 1:
@@ -199,8 +199,8 @@ class DrawingClassifier:
         tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", "Model successfully trained!", parent=self.root)
 
     def predict(self):
-        self.image1.save("temp.png")
-        img = PIL.Image.open("temp.png")
+        self.image1.save("temporary.png")
+        img = PIL.Image.open("temporary.png")
         img.thumbnail((50, 50), PIL.Image.ANTIALIAS)
         img.save("predictshape.png", "PNG")
 
