@@ -62,69 +62,43 @@ class DrawingClassifier():
             os.mkdir(f"{self.project_name}/{self.class3}")
 
     def init_gui(self):
-        WIDTH = 500
-        HEIGHT = 500
-        WHITE = (255, 255, 255)
+        WIDTH, HEIGHT = 500
 
         self.root = Tk()
         self.root.title(f"Python Drawing-Classifer v1.0 - {self.project_name}")
 
-        self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-10, bg="white")
+        self.canvas = Canvas(self.root, width=WIDTH, height=HEIGHT, bg="white")
         self.canvas.pack(expand=YES, fill=BOTH)
         self.canvas.bind("<B1-Motion>", self.paint)
 
-        self.image1 = PIL.Image.new("RGB", (WIDTH, HEIGHT), WHITE)
+        self.image1 = PIL.Image.new("RGB", (WIDTH, HEIGHT), "white")
         self.draw = PIL.ImageDraw.Draw(self.image1)
 
-        button_frame = tkinter.Frame(self.root)
+        button_frame = Frame(self.root)
         button_frame.pack(fill=X, side=BOTTOM)
 
-        button_frame.columnconfigure(0, weight=1)
-        button_frame.columnconfigure(1, weight=1)
-        button_frame.columnconfigure(2, weight=1)
-
-        class1_button = Button(button_frame, text=self.class1, command=lambda: self.save(1))
-        class1_button.grid(row=0, column=0, sticky=W + E)
-
-        class2_button = Button(button_frame, text=self.class2, command=lambda: self.save(2))
-        class2_button.grid(row=0, column=1, sticky=W + E)
-
-        class3_button = Button(button_frame, text=self.class3, command=lambda: self.save(3))
-        class3_button.grid(row=0, column=2, sticky=W + E)
-
-        brush_minus_button = Button(button_frame, text="Brush-", command=self.brushminus)
-        brush_minus_button.grid(row=1, column=0, sticky=W + E)
-
-        clear_button = Button(button_frame, text="Clear", command=self.clear)
-        clear_button.grid(row=1, column=1, sticky=W + E)
-
-        brush_plus_button = Button(button_frame, text="Brush+", command=self.brushplus)
-        brush_plus_button.grid(row=1, column=2, sticky=W + E)
-
-        train_button = Button(button_frame, text="Train Model", command=self.train_model)
-        train_button.grid(row=2, column=0, sticky=W + E)
-
-        save_button = Button(button_frame, text="Save Model", command=self.save_model)
-        save_button.grid(row=2, column=1, sticky=W + E)
-
-        load_button = Button(button_frame, text="Load Model", command=self.load_model)
-        load_button.grid(row=2, column=2, sticky=W + E)
-
-        change_button = Button(button_frame, text="Change Model", command=self.rotate_model)
-        change_button.grid(row=3, column=0, sticky=W + E)
-
-        predict_button = Button(button_frame, text="Predict", command=self.predict)
-        predict_button.grid(row=3, column=1, sticky=W + E)
-
-        save_everything_button = Button(button_frame, text="Save Everything", command=self.save_everything)
-        save_everything_button.grid(row=3, column=2, sticky=W + E)
+        buttons = [
+            (self.class1, lambda: self.save(1)),
+            (self.class2, lambda: self.save(2)),
+            (self.class3, lambda: self.save(3)),
+            ("Brush-", self.brushminus),
+            ("Clear", self.clear),
+            ("Brush+", self.brushplus),
+            ("Train Model", self.train_model),
+            ("Save Model", self.save_model),
+            ("Load Model", self.load_model),
+            ("Change Model", self.rotate_model),
+            ("Predict", self.predict),
+            ("Save Everything", self.save_everything)
+        ]
+        
+        for i, (text, command) in enumerate(buttons):
+            Button(button_frame, text=text, command=command).grid(row=i//3, column=i%3, sticky=W+E)
 
         self.status_label = Label(button_frame, text=f"Current Model: {type(self.classifier).__name__}")
-        self.status_label.config(font=("Arial", 10))
-        self.status_label.grid(row=4, column=1, sticky=W + E)
+        self.status_label.grid(row=4, column=1, sticky=W+E)
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
-        self.root.attributes("-topmost", True)
         self.root.mainloop()
 
         
