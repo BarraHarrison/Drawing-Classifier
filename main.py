@@ -244,7 +244,18 @@ class DrawingClassifier():
             tkinter.messagebox.showinfo("Python Drawing Classifier", f"The drawing is most likely a {self.class3}", parent=self.root)
 
     def save_everything(self):
-        pass
+        data = {"c1": self.class1,
+                "c2": self.class2,
+                "c3": self.class3,
+                "c1c": self.class1_counter,
+                "c2c": self.class2_counter,
+                "c3c": self.class3_counter,
+                "classifier": self.classifier,
+                "project_name": self.project_name}
+        
+        with open(f"{self.project_name}/{self.project_name}_data.pickle", "wb") as f:
+            pickle.dump(data, f)
+        tkinter.messagebox.showinfo("Python Drawing Classifier", "Project Successfully saved!", parent=self.root)
 
 
 DrawingClassifier()
