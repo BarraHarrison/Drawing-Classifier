@@ -1,5 +1,5 @@
 import pickle
-import os.path
+import os
 
 import tkinter.messagebox
 from tkinter import *
@@ -21,8 +21,8 @@ class DrawingClassifier():
 
     def __init__(self):
         self.class1, self.class2, self.class3 = None, None, None
-        self.class1_counter, self.class2_counter, self.class3_counter = None, None, None
-        self.classifier = None
+        self.class1_counter, self.class2_counter, self.class3_counter = 1, 1, 1
+        self.classifier = LinearSVC()
         self.project_name = None
         self.root = None
         self.image1 = None
@@ -51,24 +51,15 @@ class DrawingClassifier():
             self.class2_counter = data["c2c"]
             self.class3_counter = data["c3c"]
             self.classifier = data["classifier"]
-            self.project_name = data["project_name"]
         else:
             self.class1 = simpledialog.askstring("Class 1", "What is the first class called?", parent=msg)
             self.class2 = simpledialog.askstring("Class 2", "What is the second class called?", parent=msg)
             self.class3 = simpledialog.askstring("Class 3", "What is the third class called?", parent=msg)
 
-            self.class1_counter = 1
-            self.class2_counter = 1
-            self.class3_counter = 1
-
-            self.classifier = LinearSVC()
-
             os.mkdir(self.project_name)
-            os.chdir(self.project_name)
-            os.mkdir(self.class1)
-            os.mkdir(self.class2)
-            os.mkdir(self.class3)
-            os.chdir("..")
+            os.mkdir(f"{self.project_name}/{self.class1}")
+            os.mkdir(f"{self.project_name}/{self.class2}")
+            os.mkdir(f"{self.project_name}/{self.class3}")
 
     def init_gui(self):
         WIDTH = 500
