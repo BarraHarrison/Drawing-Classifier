@@ -257,5 +257,14 @@ class DrawingClassifier():
             pickle.dump(data, f)
         tkinter.messagebox.showinfo("Python Drawing Classifier", "Project Successfully saved!", parent=self.root)
 
+    
+    def on_closing(self):
+        answer = tkinter.messagebox.askyesnocancel("Quit?", "Do you want to save your work?", parent=self.root)
+        if answer is not None:
+            if answer:
+                self.save_everything()
+            self.root.destroy()
+            exit()
+
 
 DrawingClassifier()
