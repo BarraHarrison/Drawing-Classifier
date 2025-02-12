@@ -79,6 +79,8 @@ class DrawingClassifier:
         self.root = Tk()
         self.root.title(f"Python Drawing Classifier v0.1 - {self.project_name}")
 
+        self.root.configure(bg="white")
+
         self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-10, bg='white')
         self.canvas.pack(expand=YES, fill=BOTH)
         self.canvas.bind("<B1-Motion>", self.paint)
@@ -86,50 +88,50 @@ class DrawingClassifier:
         self.image1 = PIL.Image.new("RGB", (WIDTH, HEIGHT), WHITE)
         self.draw = PIL.ImageDraw.Draw(self.image1)
 
-        btn_frame = tkinter.Frame(self.root)
+        btn_frame = tkinter.Frame(self.root, bg="white")
         btn_frame.pack(fill=X, side=BOTTOM)
 
         btn_frame.columnconfigure(0, weight=1)
         btn_frame.columnconfigure(1, weight=1)
         btn_frame.columnconfigure(2, weight=1)
 
-        class1_btn = Button(btn_frame, text=self.class1, command=lambda: self.save(1))
+        class1_btn = Button(btn_frame, text=self.class1, command=lambda: self.save(1), bg="white")
         class1_btn.grid(row=0, column=0, sticky=W + E)
 
-        class2_btn = Button(btn_frame, text=self.class2, command=lambda: self.save(2))
+        class2_btn = Button(btn_frame, text=self.class2, command=lambda: self.save(2), bg="white")
         class2_btn.grid(row=0, column=1, sticky=W + E)
 
-        class3_btn = Button(btn_frame, text=self.class3, command=lambda: self.save(3))
+        class3_btn = Button(btn_frame, text=self.class3, command=lambda: self.save(3), bg="white")
         class3_btn.grid(row=0, column=2, sticky=W + E)
 
-        bm_btn = Button(btn_frame, text="Brush-", command=self.brushminus)
+        bm_btn = Button(btn_frame, text="Brush-", command=self.brushminus, bg="white")
         bm_btn.grid(row=1, column=0, sticky=W + E)
 
-        clear_btn = Button(btn_frame, text="Clear", command=self.clear)
+        clear_btn = Button(btn_frame, text="Clear", command=self.clear, bg="white")
         clear_btn.grid(row=1, column=1, sticky=W + E)
 
-        bp_btn = Button(btn_frame, text="Brush+", command=self.brushplus)
+        bp_btn = Button(btn_frame, text="Brush+", command=self.brushplus, bg="white")
         bp_btn.grid(row=1, column=2, sticky=W + E)
 
-        train_btn = Button(btn_frame, text="Train Model", command=self.train_model)
+        train_btn = Button(btn_frame, text="Train Model", command=self.train_model, bg="white")
         train_btn.grid(row=2, column=0, sticky=W + E)
 
-        save_btn = Button(btn_frame, text="Save Model", command=self.save_model)
+        save_btn = Button(btn_frame, text="Save Model", command=self.save_model, bg="white")
         save_btn.grid(row=2, column=1, sticky=W + E)
 
-        load_btn = Button(btn_frame, text="Load Model", command=self.load_model)
+        load_btn = Button(btn_frame, text="Load Model", command=self.load_model, bg="white")
         load_btn.grid(row=2, column=2, sticky=W + E)
 
-        change_btn = Button(btn_frame, text="Change Model", command=self.rotate_model)
+        change_btn = Button(btn_frame, text="Change Model", command=self.rotate_model, bg="white")
         change_btn.grid(row=3, column=0, sticky=W + E)
 
-        predict_btn = Button(btn_frame, text="Predict", command=self.predict)
+        predict_btn = Button(btn_frame, text="Predict", command=self.predict, bg="white")
         predict_btn.grid(row=3, column=1, sticky=W + E)
 
-        save_everything_btn = Button(btn_frame, text="Save Everything", command=self.save_everything)
+        save_everything_btn = Button(btn_frame, text="Save Everything", command=self.save_everything, bg="white")
         save_everything_btn.grid(row=3, column=2, sticky=W + E)
 
-        self.status_label = Label(btn_frame, text=f"Current Model: {type(self.classifier).__name__}")
+        self.status_label = Label(btn_frame, text=f"Current Model: {type(self.classifier).__name__}", bg="white")
         self.status_label.config(font=("Arial", 10))
         self.status_label.grid(row=4, column=1, sticky=W + E)
 
