@@ -146,7 +146,7 @@ class DrawingClassifier:
         self.draw.rectangle([x1, y2, x2 + self.brush_width, y2 + self.brush_width], fill="black", width=self.brush_width)
 
     def save(self, class_num):
-        self.image1.save("tetemporarymp.png")
+        self.image1.save("temporary.png")
         img = PIL.Image.open("temporary.png")
         img.thumbnail((50, 50), PIL.Image.ANTIALIAS)
 
